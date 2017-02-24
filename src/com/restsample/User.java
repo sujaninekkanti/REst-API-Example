@@ -1,8 +1,9 @@
 package com.restsample;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-@XmlRootElement(name ="user")
+//import javax.xml.bind.annotation.XmlElement;
+//import javax.xml.bind.annotation.XmlRootElement;
+//@XmlRootElement(name ="user")
+
 public class User {
 	String name;
 	String address;
@@ -21,21 +22,21 @@ public class User {
 	public String getName() {
 		return name;
 	}
-	@XmlElement
+	//@XmlElement
 	public void setName(String name) {
 		this.name = name;
 	}
 	public String getAddress() {
 		return address;
 	}
-	@XmlElement
+	//@XmlElement
 	public void setAddress(String address) {
 		this.address = address;
 	}
 	public int getId() {
 		return id;
 	}
-	@XmlElement
+	//@XmlElement
 	public void setId(int id) {
 		this.id = id;
 	}
