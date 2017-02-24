@@ -16,7 +16,8 @@ public class UserService {
 	@GET
 	@Path("/users")
 	@Produces(MediaType.APPLICATION_JSON)
-   public List<User> getUsers(){
+   public List<User> getUsers() throws Exception{
+		System.out.println("in service class..");
 	   return userdao.getAllUsers();
    }
 }
