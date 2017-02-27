@@ -13,6 +13,7 @@ public class DBConnection {
         return con;
 	}     
 	public static void closeConnection(Connection con) throws SQLException{
+		System.out.println("in close connection method");
          con.close( );
     }
 }
