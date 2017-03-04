@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -37,9 +38,21 @@ public class UserService {
 		  User user = new User(name,address,id); 
 	      int result = userdao.addUser(user); 
 	      if(result == 1){ 
-	         return "SUCCESS_RESULT"; 
+	         return "SUCCESS"; 
 	      } 
-	      return "FAILURE_RESULT"; 
-	   } 
-	
+	      return "FAILURE"; 
+	   }
+	  @POST
+	@Path("/delete")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String deleteUser(@FormParam("username") String name) throws Exception{
+		System.out.println("in user delete service");
+	    //  User user = new User();
+	     System.out.println(name);
+	      int result = userdao.delete(name); 
+	      if(result == 1){ 
+	         return "SUCCESS delete"; 
+	      } 
+		return "error n delete";
+	}
 }

@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>User home page</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+</head>
+<body ng-app='myuser'>
+	<table border="1" ng-controller='usercontroller'>
+		<tr>
+		<th>Name</th>
+		<th>Address</th>
+		<th>ID</th>
+		</tr>
+		<tr ng-repeat="ur in listuser">
+		<td>{{ur.address}}</td>
+		<td>{{ur.id}}</td>
+		<td>{{ur.name}}</td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		var myuser = angular.module('myuser',[]);
+		myuser.controller('usercontroller', function($scope,$http){
+			$http.get('http://localhost:8081/RestSample/rest/userService/users').success(function (data) {
+		          $scope.listuser = data;
+		          console.log(data);
+		     })
+			//console.log(data);
+			
+		})
+	</script>
+</body>
+</html>

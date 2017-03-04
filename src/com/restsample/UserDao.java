@@ -73,6 +73,38 @@ public int addUser(User user) throws Exception {
 	 }
 	     
 	   }
+
+public int delete(String name) throws Exception {
+	// List<User> Userlist = null;
+	// Userlist = new ArrayList<User>();
+	 //returns 1;
+	  // List<User> userList = getAllUsers(); 
+	
+	System.out.println("in delete user method");
+	try{
+		Connection con = DBConnection.getConnection();
+		System.out.println("after getting connection in dao class");
+		 PreparedStatement ps = con.prepareStatement("DELETE FROM usersample WHERE name=?");
+		 
+		// ResultSet rs =ps.executeQuery();
+		
+			 //User user = new User();
+			 ps.setString(1,name);
+		 System.out.println("in dao user before delete");
+			 
+		    int result = ps.executeUpdate(); 
+			 
+			 System.out.println("in dao user after delete");
+			 
+				DBConnection.closeConnection(con);
+				return result;
+			 
+		  }
+	 catch(Exception ei){
+		throw ei;
+	 }
+	     
+	   }
 	 
 }
 
